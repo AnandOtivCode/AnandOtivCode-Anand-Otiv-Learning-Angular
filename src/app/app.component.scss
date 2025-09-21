@@ -22,14 +22,21 @@ p{
 .user-card {
   background-color: #fff;
   padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 5px;
+  margin-bottom: 1em;
+  border-radius: 0.5em;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .user-card h3 {
   margin: 0;
-  color: #007bff;
+  color : #0065ff;
+
+}
+//Makes it so that user card indicates selection with a zoom in
+.user-card:hover{
+  transition: transform 0.5s ease;
+  animation-duration: 3s;
+  transform:scale(1.05);
 }
 
 .user-card p {
