@@ -1,1 +1,20 @@
-<p>vehicle-list works!</p>
+<div class="container">
+  <h2>User List</h2>
+  <div *ngFor="let vehicle of vehicleList" class="user-card">
+    <h3>{{ vehicle.id }}. {{ vehicle.type }}</h3>
+    <p>Model: {{ vehicle.model }}</p>
+    <p>Year: {{ vehicle.year }}</p>
+    <p>Kilometrage: {{ vehicle.km }} Kilometers</p>
+    <p>Sold : {{ vehicle.isSold ? 'Yes' : 'No' }}</p> <!-- ternary operator to give user appropriate feedback -->
+     Button to toggle Sold Status
+        <button (click)="toggleSoldStatus(vehicle)" class="toggle-button">
+          Toggle Sold Status
+        </button>
+  </div>
+</div>
+
+<app-vehicle-list-item> </app-vehicle-list-item>
+<app-vehicle-list-item> </app-vehicle-list-item>
+<app-vehicle-list-item> </app-vehicle-list-item>
+<app-vehicle-list-item> </app-vehicle-list-item>
+
