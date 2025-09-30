@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import {Vehicle} from '../models/vehicle';
-import {NgForOf} from '@angular/common';
+import {NgForOf, NgIf} from '@angular/common';
 import {VehicleListItem} from '../vehicle-list-item/vehicle-list-item';
 
 @Component({
   selector: 'app-vehicle-list',
-  imports: [NgForOf,VehicleListItem],
+  imports: [NgForOf,VehicleListItem, NgIf],
   templateUrl: './vehicle-list.html',
   standalone: true,
   styleUrl: './vehicle-list.css'

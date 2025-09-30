@@ -3,12 +3,24 @@
   margin: 0 auto;
   margin-bottom: 2em;
   padding: 40px;
-  background-color: papayawhip;
+  /*background-color: papayawhip;*/
 
   border-radius: 8px;
   border: 2px solid ;
 
 }
+.odd {
+  background-color:aliceblue;
+}
+
+.even {
+  background-color:blanchedalmond;
+}
+
+
+
+
+
 
 h2 {
   font-size:3em;
@@ -30,11 +42,11 @@ p{
 
 }
 /*//Makes it so that user card indicates selection with a zoom in*/
-.container:hover{
-  transition: transform 0.5s ease;
-  animation-duration: 3s;
-  transform:scale(1.05);
-}
+/*.container:hover{*/
+/*  transition: transform 0.5s ease;*/
+/*  animation-duration: 3s;*/
+/*  transform:scale(1.05);*/
+/*}*/
 
 
 

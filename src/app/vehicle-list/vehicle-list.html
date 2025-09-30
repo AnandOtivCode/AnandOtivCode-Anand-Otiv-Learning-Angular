@@ -1,23 +1,58 @@
-<!--<div class="container">-->
-<!--  <h2>User List</h2>-->
-<!--  <div *ngFor="let vehicle of vehicleList" class="user-card">-->
-<!--    <h3>{{ vehicle.id }}. {{ vehicle.type }}</h3>-->
-<!--    <p>Model: {{ vehicle.model }}</p>-->
-<!--    <p>Year: {{ vehicle.year }}</p>-->
-<!--    <p>Kilometrage: {{ vehicle.km }} Kilometers</p>-->
-<!--    <p>Sold : {{ vehicle.isSold ? 'Yes' : 'No' }}</p> &lt;!&ndash; ternary operator to give user appropriate feedback &ndash;&gt;-->
-<!--     Button to toggle Sold Status-->
-<!--        <button (click)="toggleSoldStatus(vehicle)" class="toggle-button">-->
-<!--          Toggle Sold Status-->
-<!--        </button>-->
-<!--  </div>-->
+
+
+
+
+<!--<div *ngFor="let vehicle of vehicleList"   class="user-card">-->
+
+<!--  <app-vehicle-list-item [vehicle]=vehicle> </app-vehicle-list-item>-->
+
+
+
 <!--</div>-->
 
-<app-vehicle-list-item [vehicle]="vehicle1"> </app-vehicle-list-item>
-<app-vehicle-list-item [vehicle]="vehicle2"> </app-vehicle-list-item>
-<app-vehicle-list-item [vehicle]="vehicle3"> </app-vehicle-list-item>
-<app-vehicle-list-item [vehicle]="vehicle4"> </app-vehicle-list-item>
-<!--<app-vehicle-list-item> </app-vehicle-list-item>-->
-<!--<app-vehicle-list-item> </app-vehicle-list-item>-->
-<!--<app-vehicle-list-item> </app-vehicle-list-item>-->
+<div class="user-card">
+  @for (vehicle of vehicleList; track vehicle.id; let i = $index){
+[class.odd] = "i %2 ==0"
+  [class.odd] = "i % 2 ==0"
+    [class.even] = "i % 2 ==1"
+
+
+<!--  [class.even]="i % 2 === 0"-->
+<!--  [class.odd]="i % 2 !== 0">-->
+
+  <app-vehicle-list-item [vehicle]="vehicle"></app-vehicle-list-item>
+  }
+
+</div>
+
+<!--&lt;!&ndash;<div class="container">&ndash;&gt;-->
+<!--&lt;!&ndash;  <h2>User List</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;  <div *ngFor="let vehicle of vehicleList" class="user-card">&ndash;&gt;-->
+<!--&lt;!&ndash;    <h3>{{ vehicle.id }}. {{ vehicle.type }}</h3>&ndash;&gt;-->
+<!--&lt;!&ndash;    <p>Model: {{ vehicle.model }}</p>&ndash;&gt;-->
+<!--&lt;!&ndash;    <p>Year: {{ vehicle.year }}</p>&ndash;&gt;-->
+<!--&lt;!&ndash;    <p>Kilometrage: {{ vehicle.km }} Kilometers</p>&ndash;&gt;-->
+<!--&lt;!&ndash;    <p>Sold : {{ vehicle.isSold ? 'Yes' : 'No' }}</p> &lt;!&ndash; ternary operator to give user appropriate feedback &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;     Button to toggle Sold Status&ndash;&gt;-->
+<!--&lt;!&ndash;        <button (click)="toggleSoldStatus(vehicle)" class="toggle-button">&ndash;&gt;-->
+<!--&lt;!&ndash;          Toggle Sold Status&ndash;&gt;-->
+<!--&lt;!&ndash;        </button>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+<!--</div>-->
+
+<!--&lt;!&ndash;  even&ndash;&gt;-->
+<!--  <div *ngIf="vehicle.id % 2==0; then thenBlock else elseBlock"></div>-->
+<!--  <ng-template #thenBlock>-->
+<!--    <div class="even">-->
+<!--      <app-vehicle-list-item [vehicle]=vehicle> </app-vehicle-list-item>-->
+<!--    </div>-->
+<!--  </ng-template>-->
+
+<!--&lt;!&ndash;odd&ndash;&gt;-->
+<!--  <ng-template #elseBlock>-->
+<!--    <div class="odd">-->
+<!--    <app-vehicle-list-item [vehicle]=vehicle> </app-vehicle-list-item>-->
+<!--  </div>-->
+<!--  </ng-template>-->
+
 
