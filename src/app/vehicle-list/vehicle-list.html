@@ -4,34 +4,25 @@
 <!--way 1-->
 
 
-<!--<div *ngFor="let vehicle of vehicleList"   class="user-card">-->
+<div *ngFor="let vehicle of vehicleList"  class="vehicle-list">
 
-<!--  <app-vehicle-list-item [vehicle]=vehicle> </app-vehicle-list-item>-->
+  <app-vehicle-list-item [vehicle]=vehicle> </app-vehicle-list-item>
 
-
-
-<!--</div>-->
+</div>
 
 
 <!--way 2-->
-<div class="user-card">
-  @for (vehicle of vehicleList; track vehicle.id; let i = $index){
-[class.odd] = "i %2 ==0"
-  [class.odd] = "i % 2 ==0"
-    [class.even] = "i % 2 ==1"
+<!--<div class="vehicle-list">-->
+<!--  @for (vehicle of vehicleList; track vehicle.id; let i = $index){-->
 
 
+<!--  <app-vehicle-list-item [vehicle]="vehicle">-->
+<!--    [class.odd] = "i % 2 === 0"-->
+<!--    [class.even] = "i % 2 === 1"-->
+<!--  </app-vehicle-list-item>-->
+<!--  }-->
 
-
-
-
-  [class.even]="i % 2 === 0"
-  [class.odd]="i % 2 !== 0">
-
-  <app-vehicle-list-item [vehicle]="vehicle"></app-vehicle-list-item>
-  }
-
-</div>
+<!--</div>-->
 
 <!-- -&#45;&#45; End of Way 2-->
 

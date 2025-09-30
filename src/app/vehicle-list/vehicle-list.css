@@ -1,9 +1,8 @@
 
-.even {
+.vehicle-list:nth-child(even) {
   background-color: #f0f8ff; /* light blue */
 }
-
-.odd {
+.vehicle-list:nth-child(odd){
   background-color: #ffe4e1; /* light pink */
 }
 
