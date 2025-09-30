@@ -63,3 +63,13 @@ p{
 .toggle-button:hover {
   background-color: #0056b3;
 }
+button{
+  float:right;
+}
+
+img{
+  /*float: none;*/
+
+
+
+}

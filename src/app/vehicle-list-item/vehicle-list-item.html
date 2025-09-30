@@ -4,9 +4,15 @@
     <p>Year: {{ vehicle.year }}</p>
     <p>Kilometrage: {{ vehicle.km }} Kilometers</p>
     <p>Sold : {{ vehicle.isSold ? 'Yes' : 'No' }}</p> <!-- ternary operator to give user appropriate feedback -->
-     Button to toggle Sold Status
+    <img [src]="vehicle.img" width="100" height="100" alt="No Image Found">
+
+
         <button (click)="toggleSoldStatus(vehicle)" class="toggle-button">
           Toggle Sold Status
         </button>
+
+
+
+
   </div>
 
