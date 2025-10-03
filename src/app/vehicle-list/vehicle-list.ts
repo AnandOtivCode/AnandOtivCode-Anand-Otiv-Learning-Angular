@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Vehicle} from '../models/vehicle';
 import {NgForOf, NgIf} from '@angular/common';
 import {VehicleListItem} from '../vehicle-list-item/vehicle-list-item';
+import {VehicleService} from "../services/vehicle.service"
 
 @Component({
   selector: 'app-vehicle-list',
@@ -12,7 +13,11 @@ import {VehicleListItem} from '../vehicle-list-item/vehicle-list-item';
 })
 export class VehicleList {
 
-  // protected readonly title = signal('AnandOtiv-Learning-Angular');
+  vehicleList: Vehicle[] = [];
+
+constructor(private vehicleService: VehicleService){
+  //Constructor primarily used for dependency injection
+}
 
 
 
