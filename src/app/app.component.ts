@@ -20,19 +20,18 @@ export class AppComponent implements OnInit{
 
   title="Vehicle Shop"
   vehicleList: Vehicle[] = [];
-  topVehicle?:Vehicle;
+  topVehicle?:Vehicle|undefined;
   chosenVehicleId = 3;
 
 
 
-  constructor(public vehicleService: VehicleService){
+
+  constructor(public vehicleService: VehicleService) {
     //Constructor primarily used for dependency injection
+  }
 
     //Sets the Vehicle at the top as this
-    this.topVehicle = vehicleList[this.chosenVehicleId]
-
-
-  }
+    // this.topVehicle = vehicleList[this.chosenVehicleId]
 
 
 
@@ -45,7 +44,23 @@ export class AppComponent implements OnInit{
 
 
     })
+
+     this.vehicleService.getSelectedVehicle().subscribe({
+       next:(data:Vehicle)=>this.topVehicle = data,
+       error: err => console.error("Error Fetching top vehicle", err),
+       complete: () => console.log("top vehicle data fetch complete!"),
+
+     })
+
+
+
+
+
   }
+
+
+
+
 
 
 

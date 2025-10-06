@@ -4,9 +4,10 @@
 <!--way 1-->
 
 
-<div *ngFor="let vehicle of vehicleList"  class="vehicle-list">
+<div *ngFor="let vehicle of vehicleList"  class="vehicle-list" (click)="selectVehicle(vehicle)" >
 
-  <app-vehicle-list-item [vehicle]=vehicle> </app-vehicle-list-item>
+
+  <app-vehicle-list-item [vehicle]=vehicle> </app-vehicle-list-item >
 
 </div>
 

@@ -1,6 +1,7 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Vehicle} from '../models/vehicle';
 import {NgIf} from '@angular/common';
+import {VehicleService} from '../services/vehicle.service';
 @Component({
   selector: 'app-vehicle-list-item',
   imports: [NgIf],
@@ -8,13 +9,23 @@ import {NgIf} from '@angular/common';
   standalone: true,
   styleUrl: './vehicle-list-item.css'
 })
-export class VehicleListItem {
+export class VehicleListItem  {
 
   @Input() vehicle?: Vehicle;
+
 
   toggleSoldStatus(vehicle: Vehicle): void {
     vehicle.isSold = !vehicle.isSold;
   }
+
+
+
+
+
+
+
+
+
 
 }
 

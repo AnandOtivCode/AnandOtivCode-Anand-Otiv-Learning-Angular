@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import {vehicleList} from '../data/mock-content.data';
 import {Observable, of} from "rxjs"
 import {Vehicle} from '../models/vehicle';
+import{VehicleList} from '../vehicle-list/vehicle-list';
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +12,27 @@ import {Vehicle} from '../models/vehicle';
 export class VehicleService {
 
   private vehicles: Vehicle[] = vehicleList; //local copy of vehicle data for CRUD operations
-  constructor(){}
+  private selectedVehicle: Vehicle;
+  constructor(){
+    //default value
+    this.selectedVehicle = vehicleList[0];
+  }
 
   //Returns all vehicles
   getVehicles(): Observable <Vehicle[]>{
     return of(vehicleList) // Return an observable that emit mock vehicle data
   }
+
+  getSelectedVehicle():Observable<Vehicle>{
+    return of(this.selectedVehicle)
+  }
+
+  setSelectedVehicle(vehicle:Vehicle){
+    this.selectedVehicle = vehicle;
+  }
+
+
+
 
 
 
