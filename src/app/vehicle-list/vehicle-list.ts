@@ -11,13 +11,21 @@ import {VehicleService} from "../services/vehicle.service"
   standalone: true,
   styleUrl: './vehicle-list.css'
 })
-export class VehicleList {
+export class VehicleList implements OnInit{
 
   vehicleList: Vehicle[] = [];
 
 constructor(private vehicleService: VehicleService){
   //Constructor primarily used for dependency injection
 }
+  ngOnInit() {
+    //This lifecycle hook is a good place to fetch and init our data
+    this.vehicleService.getVehicles().subscribe({
+      next: (data: Vehicle[]) => this.vehicleList = data,
+      error: err => console.error("Error Fetching Vehicles", err),
+      complete: () => console.log("Vehicle data fetch complete!")
+    })
+  }
 
 
 

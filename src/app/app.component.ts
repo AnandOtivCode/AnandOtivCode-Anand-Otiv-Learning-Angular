@@ -1,21 +1,57 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {Vehicle} from './models/vehicle';
 import {JsonPipe, NgForOf} from "@angular/common";
 import {VehicleList} from './vehicle-list/vehicle-list';
+import {VehicleListItem} from './vehicle-list-item/vehicle-list-item';
+import {vehicleList} from './data/mock-content.data';
+import {VehicleService} from './services/vehicle.service';
 
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,NgForOf,JsonPipe,VehicleList],
+  imports: [RouterOutlet, NgForOf, JsonPipe, VehicleList, VehicleListItem],
   templateUrl: './app.component.html',
   standalone: true,
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
   title="Vehicle Shop"
+  vehicleList: Vehicle[] = [];
+  topVehicle?:Vehicle;
+  chosenVehicleId = 3;
+
+
+
+  constructor(public vehicleService: VehicleService){
+    //Constructor primarily used for dependency injection
+
+    //Sets the Vehicle at the top as this
+    this.topVehicle = vehicleList[this.chosenVehicleId]
+
+
+  }
+
+
+
+  ngOnInit() {
+    //This lifecycle hook is a good place to fetch and init our data
+    this.vehicleService.getVehicles().subscribe({
+      next: (data: Vehicle[]) => this.vehicleList = data,
+      error: err => console.error("Error Fetching Vehicles", err),
+      complete: () => console.log("Vehicle data fetch complete!"),
+
+
+    })
+  }
+
+
+
+
+
+
 
  // // protected readonly title = signal('AnandOtiv-Learning-Angular');
  //
@@ -38,5 +74,7 @@ export class AppComponent {
  //  toggleSoldStatus(vehicle: Vehicle): void {
  //    vehicle.isSold = !vehicle.isSold;
  //  }
+
+  //protected readonly vehicleList = vehicleList;
 
 }
