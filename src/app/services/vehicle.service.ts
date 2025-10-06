@@ -20,7 +20,7 @@ export class VehicleService {
 
   //Returns all vehicles
   getVehicles(): Observable <Vehicle[]>{
-    return of(vehicleList) // Return an observable that emit mock vehicle data
+    return of(this.vehicles) // Return an observable that emit mock vehicle data
   }
 
   getSelectedVehicle():Observable<Vehicle>{
@@ -52,7 +52,7 @@ export class VehicleService {
     return of(this.vehicles);
   }
   //Delete: Remove a vehicle by ID
-  deleteStudent(vehicleId: number): Observable<Vehicle[]> {
+  deleteVehicle(vehicleId: number): Observable<Vehicle[]> {
     this.vehicles = this.vehicles.filter(vehicle => vehicle.id !== vehicleId);
     return of(this.vehicles);
   }

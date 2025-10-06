@@ -51,12 +51,18 @@ export class AppComponent implements OnInit{
        complete: () => console.log("top vehicle data fetch complete!"),
 
      })
+    this.vehicleService.deleteVehicle(5).subscribe({
+      next:(data:Vehicle[])=>this.vehicleList = data,
+      error: err => console.error("Error deleting vehicle", err),
+      complete: () => console.log("vehicle deleted!"),
 
+    })
 
-
-
+    //Test
 
   }
+
+
 
 
 
