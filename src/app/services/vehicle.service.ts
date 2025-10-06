@@ -56,6 +56,7 @@ export class VehicleService {
     this.vehicles = this.vehicles.filter(vehicle => vehicle.id !== vehicleId);
     return of(this.vehicles);
   }
+
   getVehicleById(vehicleId: number): Observable<Vehicle | undefined> {
     const vehicle = this.vehicles.find(vehicle => vehicle.id === vehicleId);
     return of(vehicle);

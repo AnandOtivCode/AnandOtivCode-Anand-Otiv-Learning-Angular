@@ -23,6 +23,9 @@ export class AppComponent implements OnInit{
   topVehicle?:Vehicle|undefined;
   chosenVehicleId = 3;
 
+  //For testing getVehiclebyId
+  testVehicleRead?:Vehicle|undefined;
+
 
 
 
@@ -51,6 +54,8 @@ export class AppComponent implements OnInit{
        complete: () => console.log("top vehicle data fetch complete!"),
 
      })
+
+    //Test Delete
     this.vehicleService.deleteVehicle(5).subscribe({
       next:(data:Vehicle[])=>this.vehicleList = data,
       error: err => console.error("Error deleting vehicle", err),
@@ -58,8 +63,48 @@ export class AppComponent implements OnInit{
 
     })
 
-    //Test
 
+//let vehicle6: Vehicle = {id: 6, type:"Jeep", model:"Compass", year:2023, km:1500, isSold:false, img:"images/jeepCompass.jpg"};
+    //Test Create
+    let testVehicle: Vehicle = {id: 14, type:"Jeep", model:"(Test)Compass", year:2023, km:1500, isSold:false, img:"images/jeepCompass.jpg"}
+    this.vehicleService.addVehicle(testVehicle).subscribe();
+
+
+    //Test Update
+    let testVehicle2:Vehicle = {id: 1, type:"Car", model:"Rebuilt-Nissan Sentra", year:2019 , km:15000, isSold:false, img:"images/nissan.jpg"};
+    this.vehicleService.updateVehicle(testVehicle2).subscribe();
+
+    //Test Read
+    this.vehicleService.getVehicleById(3).subscribe({
+      next: (data:Vehicle | undefined) => this.testVehicleRead = data,
+      error: err => console.error("Error getting VehicleById", err),
+      complete: () => console.log("vehicle gotten by Id!"),
+    })
+
+    /*
+    this.vehicleService.getVehicles().subscribe({
+      next: (data: Vehicle[]) => this.vehicleList = data,
+      error: err => console.error("Error Fetching Vehicles", err),
+      complete: () => console.log("Vehicle data fetch complete!"),
+
+
+    })
+     */
+    /*
+     getVehicleById(vehicleId: number): Observable<Vehicle | undefined> {
+    const vehicle = this.vehicles.find(vehicle => vehicle.id === vehicleId);
+    return of(vehicle);
+  }
+     */
+  }
+
+    /*
+      addVehicle(newVehicle:Vehicle) : Observable<Vehicle[]>{
+    this.vehicles.push(newVehicle)
+    return of(this.vehicles);
+  }
+     */
+//let vehicle1 :Vehicle = {id: 1, type:"Car", model:"Nissan Sentra", year:2019 , km:15000, isSold:false, img:"images/nissan.jpg"};
   }
 
 
@@ -98,4 +143,4 @@ export class AppComponent implements OnInit{
 
   //protected readonly vehicleList = vehicleList;
 
-}
+
