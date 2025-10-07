@@ -14,7 +14,7 @@ import {VehicleService} from "../services/vehicle.service"
 export class VehicleList implements OnInit{
 
   vehicleList: Vehicle[] = [];
-  selectedVehicle?: Vehicle;
+  // selectedVehicle: Vehicle | undefined;
 
 constructor(private vehicleService: VehicleService){
   //Constructor primarily used for dependency injection
@@ -27,6 +27,8 @@ constructor(private vehicleService: VehicleService){
       error: err => console.error("Error Fetching Vehicles", err),
       complete: () => console.log("Vehicle data fetch complete!")
     })
+
+
   }
 
 
@@ -40,8 +42,9 @@ constructor(private vehicleService: VehicleService){
 
   selectVehicle(vehicle:Vehicle):void{
   this.vehicleService.setSelectedVehicle(vehicle);
+  // console.log(this.vehicleService.getSelectedVehicle().id)
   console.log(vehicle.id);
-    console.log("working");
+    console.log("vehicle-list selectVehicle works");
   }
 
 

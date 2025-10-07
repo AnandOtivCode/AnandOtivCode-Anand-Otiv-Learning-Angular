@@ -48,8 +48,10 @@ export class AppComponent implements OnInit{
 
     })
 
+    //Selected Vehicle to show on top
      this.vehicleService.getSelectedVehicle().subscribe({
-       next:(data:Vehicle)=>this.topVehicle = data,
+       next:(data:Vehicle)=>{this.topVehicle = data
+         console.log("changes made in app-compnent to selected Vehicle")},
        error: err => console.error("Error Fetching top vehicle", err),
        complete: () => console.log("top vehicle data fetch complete!"),
 

@@ -29,6 +29,8 @@ export class VehicleService {
 
   setSelectedVehicle(vehicle:Vehicle){
     this.selectedVehicle = vehicle;
+    console.log("selected Vehicle changed in service")
+    console.log(this.selectedVehicle.id)
   }
 
 
