@@ -4,7 +4,7 @@
 <!--way 1-->
 
 
-<div *ngFor="let vehicle of vehicleList"  class="vehicle-list" (click)="selectVehicle(vehicle)" >
+<div *ngFor="let vehicle of vehicleList" [routerLink]="['/vehicles',vehicle.id ]" class="vehicle-list" (click)="selectVehicle(vehicle)" >
 
 
   <app-vehicle-list-item [vehicle]=vehicle> </app-vehicle-list-item >

@@ -3,10 +3,12 @@ import {Vehicle} from '../models/vehicle';
 import {NgForOf, NgIf} from '@angular/common';
 import {VehicleListItem} from '../vehicle-list-item/vehicle-list-item';
 import {VehicleService} from "../services/vehicle.service"
+import {RouterLink} from '@angular/router';
+
 
 @Component({
   selector: 'app-vehicle-list',
-  imports: [NgForOf,VehicleListItem, NgIf],
+  imports: [NgForOf,VehicleListItem, NgIf,RouterLink],
   templateUrl: './vehicle-list.html',
   standalone: true,
   styleUrl: './vehicle-list.css'

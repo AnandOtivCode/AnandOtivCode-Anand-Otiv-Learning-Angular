@@ -63,4 +63,9 @@ export class VehicleService {
     const vehicle = this.vehicles.find(vehicle => vehicle.id === vehicleId);
     return of(vehicle);
   }
+
+  generateNewId(): number{
+    //Return 1 above last index or 1 if vehicle length is 0 (First Item has ID of 1)
+    return this.vehicles.length>0 ?Math.max(...this.vehicles.map(vehicle=>vehicle.id))+1:1;
+  }
 }

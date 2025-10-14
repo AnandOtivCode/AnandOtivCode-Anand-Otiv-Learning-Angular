@@ -4,6 +4,32 @@ h1{
   text-align: center;
 }
 
+
+.nav-bar {
+  background-color: #f8f9fa; /* Light grey background */
+  padding: 10px 20px; /* Padding around the navbar */
+  border-bottom: 1px solid #dee2e6; /* Border for separation */
+}
+
+.nav-bar nav {
+  display: flex;
+  justify-content: center; /* Center the links */
+}
+
+.nav-bar a {
+  text-decoration: none; /* Remove underline from links */
+  //color: #007bff; /* Blue color for links */
+  color:green;
+  font-size: 1.5em; /* Font size for links */
+  margin: 0 1.3em; /* Space between links */
+}
+
+.nav-bar a.active {
+  font-weight: bold; /* Bold text for active link */
+  //color: #0056b3; /* Darker blue for active link */
+  color:darkgreen;
+}
+
 //.container {
 //  max-width: 800px;
 //  margin: 0 auto;

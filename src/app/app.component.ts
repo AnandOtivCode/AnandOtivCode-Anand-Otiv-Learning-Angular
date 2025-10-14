@@ -1,5 +1,5 @@
 import { Component, signal, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {RouterLink, RouterOutlet,RouterLinkActive} from '@angular/router';
 import {Vehicle} from './models/vehicle';
 import {JsonPipe, NgForOf} from "@angular/common";
 import {VehicleList} from './vehicle-list/vehicle-list';
@@ -11,7 +11,7 @@ import {VehicleService} from './services/vehicle.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NgForOf, JsonPipe, VehicleList, VehicleListItem],
+    imports: [RouterOutlet, NgForOf, JsonPipe, VehicleList, VehicleListItem,RouterLink,RouterLinkActive],
   templateUrl: './app.component.html',
   standalone: true,
   styleUrl: './app.component.scss'
