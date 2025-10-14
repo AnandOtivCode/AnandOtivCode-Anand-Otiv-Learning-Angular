@@ -1,0 +1,13 @@
+h1,p{
+  color:RED;
+  font-family: "JetBrains Mono ExtraLight";
+  text-align: center;
+}
+
+h1{
+  font-size:5em;
+}
+
+p{
+  font-size:3.5em;
+}
