@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnChanges, OnInit} from '@angular/core';
 import {Vehicle} from '../models/vehicle';
 import {JsonPipe, NgForOf, NgIf} from '@angular/common';
 import {VehicleListItem} from '../vehicle-list-item/vehicle-list-item';
 import {VehicleService} from "../services/vehicle.service"
-import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
+import {provideRouter, RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
+import {Observable} from 'rxjs';
 
 // imports: [RouterOutlet, NgForOf, JsonPipe, VehicleList, VehicleListItem,RouterLink,RouterLinkActive],
 
@@ -14,7 +15,7 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
   standalone: true,
   styleUrl: './vehicle-list.css'
 })
-export class VehicleList implements OnInit{
+export class VehicleList implements OnInit,OnChanges {
 
   vehicleList: Vehicle[] = [];
   // selectedVehicle: Vehicle | undefined;
@@ -30,7 +31,17 @@ constructor(private vehicleService: VehicleService){
       error: err => console.error("Error Fetching Vehicles", err),
       complete: () => console.log("Vehicle data fetch complete!")
     })
+  }
 
+
+  //This may help with updating the list potentially
+  ngOnChanges(){
+
+    this.vehicleService.getVehicles().subscribe({
+      next: (data: Vehicle[]) => this.vehicleList = data,
+      error: err => console.error("Error Updating Vehicles", err),
+      complete: () => console.log("Vehicle data fetch complete!")
+    })
 
   }
 
@@ -53,7 +64,12 @@ constructor(private vehicleService: VehicleService){
 
   deleteVehicle(vehicleId:number):void{
   this.vehicleService.deleteVehicle(vehicleId);
-  console.log("deleted vehicle with ID: "+vehicleId+" in vehicle-list.ts")
+//This should update the page, not sure if i'm using this right
+   this.ngOnChanges();
+
+  }
+
+  editVehicle():void{
 
   }
 
