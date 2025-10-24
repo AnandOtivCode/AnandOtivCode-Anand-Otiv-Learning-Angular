@@ -8,8 +8,30 @@
 
 
   <app-vehicle-list-item [vehicle]=vehicle> </app-vehicle-list-item >
+  <button (click)="deleteVehicle(vehicle.id)" routerLink="/vehicles" routerLinkActive="active">
+  Delete Button
+  </button>
+
+<!--  Redirects back to modify Vehicle-->
+  <button routerLink="/modify-vehicle" routerLinkActive="active">
+    Edit
+  </button>
+  <h2>Button should be above</h2>
+<!--  <button (click)="toggleSoldStatus(vehicle)" class="toggle-button">-->
+<!--    Toggle Sold Status-->
+<!--  </button>-->
 
 </div>
+
+
+<!--<div class="nav-bar">-->
+<!--  <nav>-->
+<!--    <a routerLink="/vehicles" routerLinkActive="active">Vehicle List</a>-->
+<!--    <a routerLink="/modify-vehicle" routerLinkActive="active">Modify Vehicle</a>-->
+
+
+
+<!--  </nav>-->
 
 
 <!--way 2-->

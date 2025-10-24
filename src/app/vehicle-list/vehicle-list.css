@@ -7,6 +7,43 @@
 }
 
 
+  button {
+    margin-top: 10px;
+    margin-right:2em;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+
+
+
+/*!*Button Styles*!*/
+/*.toggle-button {*/
+/*  margin-top: 10px;*/
+/*  padding: 5px 10px;*/
+/*  background-color: #007bff;*/
+/*  color: white;*/
+/*  border: none;*/
+/*  border-radius: 40px;*/
+/*  cursor: pointer;*/
+/*}*/
+
+/*.toggle-button:hover {*/
+/*  background-color: #0056b3;*/
+/*}*/
+/*button{*/
+/*  float:right;*/
+/*}*/
+
+
 /*.even{*/
 /*  background-color: aliceblue;*/
 
