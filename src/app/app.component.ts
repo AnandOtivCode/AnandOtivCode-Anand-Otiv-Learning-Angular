@@ -49,21 +49,21 @@ export class AppComponent implements OnInit{
     })
 
     //Selected Vehicle to show on top
-     this.vehicleService.getSelectedVehicle().subscribe({
-       next:(data:Vehicle)=>{this.topVehicle = data
-         console.log("changes made in app-compnent to selected Vehicle")},
-       error: err => console.error("Error Fetching top vehicle", err),
-       complete: () => console.log("top vehicle data fetch complete!"),
-
-     })
+    //  this.vehicleService.getSelectedVehicle().subscribe({
+    //    next:(data:Vehicle)=>{this.topVehicle = data
+    //      console.log("changes made in app-compnent to selected Vehicle")},
+    //    error: err => console.error("Error Fetching top vehicle", err),
+    //    complete: () => console.log("top vehicle data fetch complete!"),
+    //
+    //  })
 
     //Test Delete
-    this.vehicleService.deleteVehicle(5).subscribe({
-      next:(data:Vehicle[])=>this.vehicleList = data,
-      error: err => console.error("Error deleting vehicle", err),
-      complete: () => console.log("vehicle deleted!"),
-
-    })
+    // this.vehicleService.deleteVehicle(5).subscribe({
+    //   next:(data:Vehicle[])=>this.vehicleList = data,
+    //   error: err => console.error("Error deleting vehicle", err),
+    //   complete: () => console.log("vehicle deleted!"),
+    //
+    // })
 
 
 //let vehicle6: Vehicle = {id: 6, type:"Jeep", model:"Compass", year:2023, km:1500, isSold:false, img:"images/jeepCompass.jpg"};

@@ -7,6 +7,13 @@ import {VehicleList} from './app/vehicle-list/vehicle-list';
 import {ModifyVehicle} from './app/modify-vehicle/modify-vehicle';
 import {PageNotFound} from './app/page-not-found/page-not-found';
 import {vehicleList} from './app/data/mock-content.data';
+import {provideHttpClient} from '@angular/common/http';
+import {importProvidersFrom} from '@angular/core';
+import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {InMemoryDataService} from './app/services/in-memory-data.service';
+
+
+
 
 
 
@@ -21,8 +28,12 @@ const routes: Routes = [
 // bootstrapApplication(AppComponent, appConfig)
 //   .catch((err) => console.error(err));
 bootstrapApplication(AppComponent, {
-  providers: [provideRouter(routes)]
+  providers: [provideHttpClient(), // Ensure that HTTP interceptors are properly configured
+    provideRouter(routes),
+    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 1000 }))]
 }).then(r => console.log('Bootstrap successful'));
+
+
 
 
 // So VehicleList Routing Works

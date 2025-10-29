@@ -55,12 +55,7 @@ constructor(private vehicleService: VehicleService){
     vehicle.isSold = !vehicle.isSold;
   }
 
-  selectVehicle(vehicle:Vehicle):void{
-  this.vehicleService.setSelectedVehicle(vehicle);
-  // console.log(this.vehicleService.getSelectedVehicle().id)
-  console.log(vehicle.id);
-    console.log("vehicle-list selectVehicle works");
-  }
+
 
   deleteVehicle(vehicleId:number):void{
   this.vehicleService.deleteVehicle(vehicleId);
