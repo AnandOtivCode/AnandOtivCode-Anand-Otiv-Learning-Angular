@@ -14,6 +14,7 @@ import {VehicleService} from '../services/vehicle.service';
 export class ModifyVehicle implements OnInit{
   vehicleForm: FormGroup;
   vehicle: Vehicle | undefined;
+  error: string | null = null;
 
 //   export interface Vehicle {
 //   id: number,
@@ -32,25 +33,46 @@ export class ModifyVehicle implements OnInit{
   ) {
     this.vehicleForm = this.fb.group({
       id: ['', Validators.required], //ID is required
-      type: [''],//Type is required
+      type: [''],
       model: [''],
       year: [''],
       km:[''],
       isSold: [false]
+
     });
   }
 
 
+
+  // ngOnInit(): void {
+  //   const id = this.route.snapshot.paramMap.get('id');
+  //   if (id) {
+  //     this.vehicleService.getVehicleById(+id).subscribe(vehicle => {
+  //       if(vehicle) {
+  //         this.vehicle = vehicle;
+  //
+  //         this.vehicleForm.patchValue(vehicle);
+  //       }
+  //     });
+  //   }
+  // }
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
-      this.vehicleService.getVehicleById(+id).subscribe(vehicle => {
-        if(vehicle) {
-          this.vehicle = vehicle;
+      this.vehicleService.getVehicleById(+id).subscribe({
+        next: vehicle => {
+          if (vehicle) {
+            this.vehicle = vehicle;
 
-          this.vehicleForm.patchValue(vehicle);
+            this.vehicleForm.patchValue(vehicle);
+          }
+        },
+        error: err => {
+          this.error = 'Error fetching student';
+          console.error('Error fetching student:', err);
         }
       });
+
     }
   }
 
@@ -69,19 +91,23 @@ export class ModifyVehicle implements OnInit{
 
 
   onSubmit(): void {
-    const vehicle: Vehicle = this.vehicleForm.value;
+    if (this.vehicleForm.valid) {
+      //If the form is valid, it extracts the form values into a vehicle object of type Vehicle
 
-    // Check if we're updating an existing student
-    if (vehicle.id) {
-      this.vehicleService.updateVehicle(vehicle);
-    } else {
-      // For adding a new student, generate a new ID
-      const newId = this.vehicleService.generateNewId(); // This method will create a new ID
-      vehicle.id = newId;
-      this.vehicleService.addVehicle(vehicle);
+      const vehicle: Vehicle = this.vehicleForm.value;
+
+      // Check if we're updating an existing student
+      if (vehicle.id) {
+        this.vehicleService.updateVehicle(vehicle);
+      } else {
+        // For adding a new student, generate a new ID
+        const newId = this.vehicleService.generateNewId(); // This method will create a new ID
+        vehicle.id = newId;
+        this.vehicleService.addVehicle(vehicle);
+      }
+
+      this.router.navigate(['/vehicles']);
     }
-
-    this.router.navigate(['/vehicles']);
   }
 
 }

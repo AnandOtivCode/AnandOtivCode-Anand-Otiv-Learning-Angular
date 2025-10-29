@@ -18,6 +18,7 @@ import {Observable} from 'rxjs';
 export class VehicleList implements OnInit,OnChanges {
 
   vehicleList: Vehicle[] = [];
+  error: string | null = null; //Var to hold an error message
   // selectedVehicle: Vehicle | undefined;
 
 constructor(private vehicleService: VehicleService){
@@ -28,7 +29,10 @@ constructor(private vehicleService: VehicleService){
     //This lifecycle hook is a good place to fetch and init our data
     this.vehicleService.getVehicles().subscribe({
       next: (data: Vehicle[]) => this.vehicleList = data,
-      error: err => console.error("Error Fetching Vehicles", err),
+      error: err =>{
+        this.error = "Error fetching students"; //Set an error message
+        console.error("Error Fetching Vehicles", err)
+      },
       complete: () => console.log("Vehicle data fetch complete!")
     })
   }
@@ -39,7 +43,9 @@ constructor(private vehicleService: VehicleService){
 
     this.vehicleService.getVehicles().subscribe({
       next: (data: Vehicle[]) => this.vehicleList = data,
-      error: err => console.error("Error Updating Vehicles", err),
+      error: err =>{
+        this.error = "Error fetching students"; //Set an error message
+       console.error("Error Updating Vehicles", err)},
       complete: () => console.log("Vehicle data fetch complete!")
     })
 
