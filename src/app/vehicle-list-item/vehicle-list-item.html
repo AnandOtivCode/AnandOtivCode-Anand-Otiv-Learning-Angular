@@ -2,7 +2,8 @@
 <div *ngIf = "vehicle" class="container"  >
     <h3>{{ vehicle.id }}. {{ vehicle.type | uppercase }}</h3>
     <p>Model: {{ vehicle.model | titlecase }}</p>
-  <p>Model: {{ vehicle.cost | currency: 'CAD': "symbol-narrow" }}</p>
+  <p>Cost: {{ vehicle.cost | currency: 'CAD': "symbol-narrow" }}</p>
+  <p> {{vehicle | description }}</p>
     <p>Year: {{ vehicle.year }}</p>
     <p>Kilometrage: {{ vehicle.km }} Kilometers</p>
     <p>Sold : {{ vehicle.isSold ? 'Yes' : 'No' }}</p> <!-- ternary operator to give user appropriate feedback -->

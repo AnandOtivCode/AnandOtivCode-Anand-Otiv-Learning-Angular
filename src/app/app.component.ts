@@ -67,21 +67,21 @@ export class AppComponent implements OnInit{
 
 
 //let vehicle6: Vehicle = {id: 6, type:"Jeep", model:"Compass", year:2023, km:1500, isSold:false, img:"images/jeepCompass.jpg"};
-    //Test Create
-    let testVehicle: Vehicle = {id: 14, type:"Jeep", model:"(Test)Compass", year:2023, km:1500, isSold:false, img:"images/jeepCompass.jpg"}
-    this.vehicleService.addVehicle(testVehicle).subscribe();
-
-
-    //Test Update
-    let testVehicle2:Vehicle = {id: 1, type:"Car", model:"Rebuilt-Nissan Sentra", year:2019 , km:15000, isSold:false, img:"images/nissan.jpg"};
-    this.vehicleService.updateVehicle(testVehicle2).subscribe();
-
-    //Test Read
-    this.vehicleService.getVehicleById(3).subscribe({
-      next: (data:Vehicle | undefined) => this.testVehicleRead = data,
-      error: err => console.error("Error getting VehicleById", err),
-      complete: () => console.log("vehicle gotten by Id!"),
-    })
+//     //Test Create
+//     let testVehicle: Vehicle = {id: 14, type:"Jeep", model:"(Test)Compass", year:2023, km:1500, isSold:false, img:"images/jeepCompass.jpg"}
+//     this.vehicleService.addVehicle(testVehicle).subscribe();
+//
+//
+//     //Test Update
+//     let testVehicle2:Vehicle = {id: 1, type:"Car", model:"Rebuilt-Nissan Sentra", year:2019 , km:15000, isSold:false, img:"images/nissan.jpg"};
+//     this.vehicleService.updateVehicle(testVehicle2).subscribe();
+//
+//     //Test Read
+//     this.vehicleService.getVehicleById(3).subscribe({
+//       next: (data:Vehicle | undefined) => this.testVehicleRead = data,
+//       error: err => console.error("Error getting VehicleById", err),
+//       complete: () => console.log("vehicle gotten by Id!"),
+//     })
 
     /*
     this.vehicleService.getVehicles().subscribe({

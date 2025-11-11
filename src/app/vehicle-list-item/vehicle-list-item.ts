@@ -3,12 +3,14 @@ import {Vehicle} from '../models/vehicle';
 import {CurrencyPipe, NgIf, TitleCasePipe, UpperCasePipe} from '@angular/common';
 import {VehicleService} from '../services/vehicle.service';
 import{ActivatedRoute,Router} from '@angular/router';
+import {DescriptionPipe} from '../pipes/description-pipe';
+
 // import {VehicleList} from '../vehicle-list/vehicle-list';
 
 
 @Component({
   selector: 'app-vehicle-list-item',
-  imports: [NgIf,CurrencyPipe,TitleCasePipe,UpperCasePipe],
+  imports: [NgIf,CurrencyPipe,TitleCasePipe,UpperCasePipe,DescriptionPipe],
   templateUrl: './vehicle-list-item.html',
   standalone: true,
   styleUrl: './vehicle-list-item.css'
