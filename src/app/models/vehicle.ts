@@ -6,4 +6,5 @@ export interface Vehicle {
   km: number,
   isSold?: boolean
   img?:string
+  cost?:number
 }

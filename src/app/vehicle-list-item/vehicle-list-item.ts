@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Vehicle} from '../models/vehicle';
-import {NgIf} from '@angular/common';
+import {CurrencyPipe, NgIf, TitleCasePipe, UpperCasePipe} from '@angular/common';
 import {VehicleService} from '../services/vehicle.service';
 import{ActivatedRoute,Router} from '@angular/router';
 // import {VehicleList} from '../vehicle-list/vehicle-list';
@@ -8,7 +8,7 @@ import{ActivatedRoute,Router} from '@angular/router';
 
 @Component({
   selector: 'app-vehicle-list-item',
-  imports: [NgIf],
+  imports: [NgIf,CurrencyPipe,TitleCasePipe,UpperCasePipe],
   templateUrl: './vehicle-list-item.html',
   standalone: true,
   styleUrl: './vehicle-list-item.css'
