@@ -4,13 +4,14 @@ import {CurrencyPipe, NgIf, TitleCasePipe, UpperCasePipe} from '@angular/common'
 import {VehicleService} from '../services/vehicle.service';
 import{ActivatedRoute,Router} from '@angular/router';
 import {DescriptionPipe} from '../pipes/description-pipe';
+import {HoverHighlightDirective} from '../directives/hover-highlight';
 
 // import {VehicleList} from '../vehicle-list/vehicle-list';
 
 
 @Component({
   selector: 'app-vehicle-list-item',
-  imports: [NgIf,CurrencyPipe,TitleCasePipe,UpperCasePipe,DescriptionPipe],
+  imports: [NgIf,CurrencyPipe,TitleCasePipe,UpperCasePipe,DescriptionPipe,HoverHighlightDirective],
   templateUrl: './vehicle-list-item.html',
   standalone: true,
   styleUrl: './vehicle-list-item.css'

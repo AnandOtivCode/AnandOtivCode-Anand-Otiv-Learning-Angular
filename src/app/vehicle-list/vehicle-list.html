@@ -4,7 +4,7 @@
 <!--way 1-->
 
 
-<div *ngFor="let vehicle of vehicleList"  class="vehicle-list"  >
+<div *ngFor="let vehicle of vehicleList"  class="vehicle-list" >
 
 <div [routerLink]="['/vehicles',vehicle.id ]">
   <app-vehicle-list-item [vehicle]=vehicle> </app-vehicle-list-item >
@@ -12,7 +12,7 @@
 </div>
 <!--  routerLink="/vehicles" routerLinkActive="active"-->
 <div routerLink="/vehicles" routerLinkActive="active">
-  <button (click)="deleteVehicle(vehicle.id)">
+  <button (click)="deleteVehicle(vehicle.id)" >
   Delete Vehicle {{vehicle.model}}
     Id: ({{vehicle.id}})
   </button>

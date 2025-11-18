@@ -5,12 +5,13 @@ import {VehicleListItem} from '../vehicle-list-item/vehicle-list-item';
 import {VehicleService} from "../services/vehicle.service"
 import {provideRouter, RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {Observable} from 'rxjs';
+import {HoverHighlightDirective} from '../directives/hover-highlight';
 
 // imports: [RouterOutlet, NgForOf, JsonPipe, VehicleList, VehicleListItem,RouterLink,RouterLinkActive],
 
 @Component({
   selector: 'app-vehicle-list',
-  imports: [NgForOf, VehicleListItem,JsonPipe, NgIf, RouterLink, RouterLinkActive,RouterOutlet],
+  imports: [NgForOf, VehicleListItem, JsonPipe, NgIf, RouterLink, RouterLinkActive, RouterOutlet, HoverHighlightDirective],
   templateUrl: './vehicle-list.html',
   standalone: true,
   styleUrl: './vehicle-list.css'
