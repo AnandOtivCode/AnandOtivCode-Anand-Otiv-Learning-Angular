@@ -4,10 +4,12 @@ import {NgIf} from '@angular/common';
 import {Vehicle} from '../models/vehicle';
 import {ActivatedRoute, Router} from '@angular/router';
 import {VehicleService} from '../services/vehicle.service';
+import {HighlightOnFocusDirective} from '../directives/highlight-on-focus';
+import {HoverHighlightDirective} from '../directives/hover-highlight';
 
 @Component({
   selector: 'app-modify-vehicle',
-  imports: [FormsModule,NgIf,ReactiveFormsModule],
+  imports: [FormsModule, NgIf, ReactiveFormsModule, HighlightOnFocusDirective, HoverHighlightDirective],
   templateUrl: './modify-vehicle.html',
   styleUrl: './modify-vehicle.css'
 })

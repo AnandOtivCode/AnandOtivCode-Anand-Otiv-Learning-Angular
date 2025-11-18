@@ -15,40 +15,40 @@
 
 
     <!--- Id Field -->
-    <div class="form-group">
+    <div class="form-group" [appFocusHighlight]="'lightblue'">
     <label for="id">ID</label>
     <input type="number" id="id" formControlName="id" pattern="^[0-9]*$
-" />
+" [appFocusHighlight]="'lightblue'" />
   </div>
 
   <!-- Type Field -->
   <div class="form-group">
     <label for="type">Type</label>
-    <input type="text" id="type" formControlName="type" />
+    <input type="text" id="type" formControlName="type" [appFocusHighlight]="'lightblue'"  />
   </div>
 
   <!-- Model Field -->
   <div class="form-group">
     <label for="model">Model</label>
-    <input type="text" id="model" formControlName="model" />
+    <input type="text" id="model" formControlName="model" [appFocusHighlight]="'lightblue'"  />
   </div>
 
   <!-- Year Field -->
   <div class="form-group">
     <label for="year">Year</label>
-    <input type="number" id="department" formControlName="year" />
+    <input type="number" id="department" formControlName="year" [appFocusHighlight]="'lightblue'"  />
   </div>
 
     <!-- Km Field -->
     <div class="form-group">
       <label for="km">Km</label>
-      <input type="number" id="department" formControlName="km" />
+      <input type="number" id="department" formControlName="km" [appFocusHighlight]="'lightblue'"  />
     </div>
 
   <!-- isSold Checkbox -->
   <div class="form-group">
     <label for="isSold">Is Sold</label>
-    <input type="checkbox" id="isSold" formControlName="isSold" />
+    <input type="checkbox" id="isSold" formControlName="isSold" [appFocusHighlight]="'lightblue'"  />
   </div>
 
   <!-- Submit Button (Add or Update) -->
